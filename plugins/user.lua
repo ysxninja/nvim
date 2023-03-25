@@ -58,7 +58,7 @@ return {
      },
      {
        "dsznajder/vscode-es7-javascript-react-snippets",
-       ft = "javascript, react, next",
+       event = "VeryLazy",
        run = "yarn install --frozen-lockfile && yarn compile",
      },
      -- {
