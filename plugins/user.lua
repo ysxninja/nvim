@@ -28,7 +28,10 @@ return {
      {
        "vimwiki/vimwiki",
        branch = "dev",
-       config = function()
+       -- lazy = false,
+       -- priority = 1000,
+       event = "VeryLazy",
+       init = function()
          vim.g.vimwiki_list = {
            {
              path = "~/vimwiki/",
@@ -42,25 +45,34 @@ return {
        end
      },
      {
-       "ThePrimeagen/vim-be-good"
+       "ThePrimeagen/vim-be-good",
+       event = "VeryLazy",
      },
      {
        "ThePrimeagen/harpoon"
      },
      {
-       "ambv/black"
+       "ambv/black",
+       -- event = "VeryLazy",
+       ft = "python",
      },
      {
        "dsznajder/vscode-es7-javascript-react-snippets",
-       run = "yarn install --frozen-lockfile && yarn compile"
+       ft = "javascript, react, next",
+       run = "yarn install --frozen-lockfile && yarn compile",
      },
      -- {
      --   "github/copilot.vim"
+     -- event = "VeryLazy"
      -- },
      {
-       "vimpostor/vim-tpipeline"
+       "vimpostor/vim-tpipeline",
+       lazy = false,
+       -- priority = 1000,
+       -- event = "VeryLazy"
      },
      {
-       "lambdalisue/suda.vim"
+       "lambdalisue/suda.vim",
+       event = "VeryLazy",
      }
 }
