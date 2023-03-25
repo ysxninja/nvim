@@ -37,6 +37,7 @@ return {
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
+          c
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
@@ -64,6 +65,21 @@ return {
     },
   },
 
+  -- LuaSnip Options
+  luasnip = {
+    -- Extend filetypes
+    filetype_extend = {
+      javascript = { "javascriptreact", "html" },
+      javascriptreact = { "html" },
+      typescriptreact = { "html" }
+    },
+    -- Configure luasnip loaders (vscode, lua, and/or snipmate)
+    vscode = {
+      -- Add paths for including more VS Code style snippets in luasnip
+      paths = {},
+    },
+  },
+
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -80,5 +96,42 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    local mark = require("harpoon.mark")
+    local ui = require("harpoon.ui")
+    vim.keymap.set("n", "<leader>a", mark.add_file , { desc = "Harpoon add" })
+    vim.keymap.set("n", "<leader>v", ui.toggle_quick_menu, { desc = "Harpoon toggle"})
+    vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
+    vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)
+    vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end)
+    vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
+
+    -- -- Rust
+    -- vim.g.rustfmt_autosave = 1
+    -- -- Copilot
+    -- vim.g.copilot_no_tab_map = true
+    -- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+    -- vim.g.copilot_filetypes = {
+    --   ["*"] = false,
+    --   ["javascript"] = true,
+    --   ["typescript"] = true,
+    --   ["lua"] = false,
+    --   ["rust"] = true,
+    --   ["c"] = true,
+    --   ["c#"] = true,
+    --   ["c++"] = true,
+    --   ["go"] = true,
+    --   ["python"] = true,
+    -- }
+    -- -- Set key bindings
+    -- -- vim.keymap.set("n", "<C-s>", ":w!<CR>")
+    --
+    -- -- Set autocommands\
+    -- vim.cmd [[autocmd FileType * setlocal formatoptions-=ro]]
+    -- vim.api.nvim_create_augroup("packer_conf", { clear = true })
+    -- vim.api.nvim_create_autocmd("BufWritePost", {
+    --   desc = "Sync packer after modifying plugins.lua",
+    --   group = "packer_conf",
+    --   pattern = "plugins.lua",
+    --   command = "source <afile> | PackerSync",
   end,
 }
