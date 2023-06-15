@@ -1,0 +1,56 @@
+return {
+  "goolord/alpha-nvim",
+  cmd = "Alpha",
+  opts = function()
+    local dashboard = require "alpha.themes.dashboard"
+    local logo = [[
+      ⢰⣧⣼⣯⠄⣸⣠⣶⣶⣦⣾⠄⠄⠄⠄⡀⠄⢀⣿⣿⠄⠄⠄⢸⡇⠄⠄
+      ⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿⠄
+     ⢀⡋⣡⣴⣶⣶⡀⠄⠄⠙⢿⣿⣿⣿⣿⣿⣴⣿⣿⣿⢃⣤⣄⣀⣥⣿⣿⠄
+     ⢸⣇⠻⣿⣿⣿⣧⣀⢀⣠⡌⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⣿⣿⣿⠄
+    ⢀⢸⣿⣷⣤⣤⣤⣬⣙⣛⢿⣿⣿⣿⣿⣿⣿⡿⣿⣿⡍⠄⠄⢀⣤⣄⠉⠋⣰
+    ⣼⣖⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⢇⣿⣿⡷⠶⠶⢿⣿⣿⠇⢀⣤
+   ⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣷⣶⣥⣴⣿⡗
+   ⢀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟
+   ⢸⣿⣦⣌⣛⣻⣿⣿⣧⠙⠛⠛⡭⠅⠒⠦⠭⣭⡻⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃
+   ⠘⣿⣿⣿⣿⣿⣿⣿⣿⡆⠄⠄⠄⠄⠄⠄⠄⠄⠹⠈⢋⣽⣿⣿⣿⣿⣵⣾⠃
+    ⠘⣿⣿⣿⣿⣿⣿⣿⣿⠄⣴⣿⣶⣄⠄⣴⣶⠄⢀⣾⣿⣿⣿⣿⣿⣿⠃
+     ⠈⠻⣿⣿⣿⣿⣿⣿⡄⢻⣿⣿⣿⠄⣿⣿⡀⣾⣿⣿⣿⣿⣛⠛⠁
+       ⠈⠛⢿⣿⣿⣿⠁⠞⢿⣿⣿⡄⢿⣿⡇⣸⣿⣿⠿⠛⠁
+          ⠉⠻⣿⣿⣾⣦⡙⠻⣷⣾⣿⠃⠿⠋⠁     ⢀⣠⣴
+   ⣿⣿⣿⣶⣶⣮⣥⣒⠲⢮⣝⡿⣿⣿⡆⣿⡿⠃⠄⠄⠄⠄⠄⠄⠄⣠⣴⣿⣿⣿
+    ]]
+    dashboard.section.header.val = vim.split(logo, "\n")
+
+    local button = require("astronvim.utils").alpha_button
+    dashboard.section.buttons.val = {
+      dashboard.button("p", " " .. " Projects", [[:lua require("telescope").extensions.project.project() <cr>]]),
+      dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+      dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+      dashboard.button("w", " " .. " Find text", ":Telescope live_grep <CR>"),
+      dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+      -- dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
+      -- button("LDR n  ", "  New File  "),
+      -- button("LDR f f", "  Find File  "),
+      -- button("LDR f o", "󰈙  Recents  "),
+      -- button("LDR f w", "󰈭  Find Word  "),
+      -- button("LDR f '", "  Bookmarks  "),
+      -- button("LDR S l", "  Last Session  "),
+    }
+    for _, button in ipairs(dashboard.section.buttons.val) do
+      button.opts.hl = "DashboardButtons"
+      button.opts.hl_shortcut = "DashboardShortcut"
+    end
+
+    dashboard.section.header.opts.hl = "DashboardHeader"
+    dashboard.section.buttons.opts.hl = "DashboardButtons"
+    dashboard.section.footer.opts.hl = "DashboardFooter"
+
+    dashboard.config.layout[1].val = vim.fn.max { 2, vim.fn.floor(vim.fn.winheight(0) * 0.12) }
+    dashboard.config.layout[3].val = 3
+    dashboard.config.opts.noautocmd = true
+    return dashboard
+  end,
+  config = require "plugins.configs.alpha",
+}
