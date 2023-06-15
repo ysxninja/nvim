@@ -58,7 +58,13 @@ return {
   },
   {
     "dsznajder/vscode-es7-javascript-react-snippets",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "typescriptreact",
+      "typescript",
+    },
     run = "yarn install --frozen-lockfile && yarn compile",
   },
   -- {
@@ -77,7 +83,12 @@ return {
   },
   {
     "fatih/vim-go",
-    ft = "go, gomod, gowork, gosum"
+    ft = {
+      "go",
+      "gomod",
+      "gowork",
+      "gosum",
+    }
   },
   {
     "folke/persistence.nvim"
