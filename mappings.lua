@@ -26,6 +26,7 @@ return {
     -- ["<leader>ee"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle explorer with default source" },
     -- ["<leader>eb"] = { "<cmd>Neotree source=buffers<cr>", desc = "Toggle Explorer and focus source buffers" },
     -- ["<leader>eg"] = { "<cmd>Neotree source=git_status<cr>", desc = "Toggle Explorer and focus source git_status" }
+    ["<leader>fp"] = { "<cmd>Telescope project<cr>", desc = "Toggle Projects Picker" }
   },
   t = {
     -- setting a mapping to false will disable it
