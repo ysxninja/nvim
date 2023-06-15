@@ -72,7 +72,7 @@ return {
     -- event = "VeryLazy"
   },
   {
-    "lambdalisue/suda.vim",
+    "tpope/vim-eunuch",
     event = "VeryLazy",
   },
   {
