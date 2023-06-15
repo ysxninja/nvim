@@ -75,4 +75,8 @@ return {
     "lambdalisue/suda.vim",
     event = "VeryLazy",
   }
+  {
+    "fatih/vim-go",
+    -- ft = "go"
+  }
 }
