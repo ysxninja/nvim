@@ -77,6 +77,6 @@ return {
   },
   {
     "fatih/vim-go",
-    -- ft = "go"
+    ft = "go, gomod, gowork, gosum"
   }
 }
