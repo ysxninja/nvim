@@ -78,5 +78,20 @@ return {
   {
     "fatih/vim-go",
     ft = "go, gomod, gowork, gosum"
-  }
+  },
+  {
+    "folke/persistence.nvim"
+    ,
+    event = "BufReadPre",
+    opts = {
+      -- add any custom options here
+    }
+  },
+  {
+    "nvim-telescope/telescope-project.nvim",
+    event = "VeryLazy",
+    config = function()
+      require('telescope').load_extension('project')
+    end
+  },
 }
