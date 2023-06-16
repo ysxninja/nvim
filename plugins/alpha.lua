@@ -11,12 +11,12 @@ return {
 
     local button = require("astronvim.utils").alpha_button
     dashboard.section.buttons.val = {
-      dashboard.button("p", " " .. " Projects", [[:lua require("telescope").extensions.projects.projects{} <cr>]]),
+      dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
       dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
       dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-      dashboard.button("w", " " .. " Find text", ":Telescope live_grep <CR>"),
-      dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+      dashboard.button("w", " " .. " Find word", ":Telescope live_grep <CR>"),
+      dashboard.button("p", " " .. " Projects", [[:lua require("telescope").extensions.projects.projects{} <cr>]]),
       -- dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
       -- button("LDR n  ", "  New File  "),
       -- button("LDR f f", "  Find File  "),
