@@ -111,4 +111,14 @@ return {
     dependencies = "mfussenegger/nvim-dap",
     config = function(_, opts) require("dap-go").setup(opts) end,
   },
+  --- Vim Tmux integration
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   priority = 1000,
+  -- },
 }
