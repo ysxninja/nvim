@@ -11,6 +11,13 @@ return {
   -- },
   -- INFO: Dev Productivity PLUGINS
   {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = {
+      -- add any custom options here
+    },
+  },
+  {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
@@ -28,7 +35,21 @@ return {
     end,
     opts = {},
     --  WARN: setting lazy=false overrides current bg
-    event = "BufRead",
+    --
+    -- event = "BufRead",
+    event = "User AstroFile",
+    cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
+  },
+  {
+    "folke/trouble.nvim",
+    cmd = { "TroubleToggle", "Trouble" },
+    opts = {
+      use_diagnostic_signs = true,
+      action_keys = {
+        close = { "q", "<esc>" },
+        cancel = "<c-e>",
+      },
+    },
   },
   {
     "navarasu/onedark.nvim",
@@ -67,22 +88,34 @@ return {
   },
   {
     "tpope/vim-eunuch",
-    event = "VeryLazy",
-  },
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {
-      -- add any custom options here
+    cmd = {
+      "Remove",
+      "Delete",
+      "Move",
+      "Chmod",
+      "Copy",
+      "Mkdir",
+      "Cfind",
+      "Clocate",
+      "Lfind",
+      "Wall",
+      "SudoWrite",
+      "SudoEdit",
     },
+    -- event = "User AstroFile",
   },
   {
     "ahmedkhalf/project.nvim",
-    -- event = "VeryLazy",
+    event = "VeryLazy",
+    opts = {
+      ignore_lsp = { "lua_ls", "gopls" },
+    },
+    config = function(_, opts) require("project_nvim").setup(opts) end,
   },
   {
     "ThePrimeagen/vim-be-good",
-    event = "VeryLazy",
+    cmd = "VimBeGood",
+    -- event = "User AstroFile",
   },
   {
     "ThePrimeagen/harpoon",
