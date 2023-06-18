@@ -26,6 +26,7 @@ return {
     -- ["<leader>eb"] = { "<cmd>Neotree source=buffers<cr>", desc = "Toggle Explorer and focus source buffers" },
     -- ["<leader>eg"] = { "<cmd>Neotree source=git_status<cr>", desc = "Toggle Explorer and focus source git_status" }
     ["<leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Toggle Projects Picker" },
+    -- ["<leader>ff"] = { "<cmd>Telescope find_files theme=dropdown<cr>", desc = "Find files" },
     ["<leader>ft"] = { "<cmd>TodoTelescope<cr>", desc = "Seach all project todos" },
     ["<leader>r"] = { name = " CodeRunner" },
     ["<leader>rb"] = { "<cmd>GoBuild<cr>", desc = "Build go project" },
