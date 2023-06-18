@@ -9,6 +9,27 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  -- INFO: Dev Productivity PLUGINS
+  {
+    "folke/todo-comments.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        gui_style = {
+          -- fg = "NONE",  -- NONE / BOLD
+          -- bg = "NONE",
+        },
+        highlight = {
+          before = "",
+          keyword = "wide", -- wide, fg, bg, wide_bg, wide_fg
+          after = "fg",
+        },
+      }
+    end,
+    opts = {},
+    --  WARN: setting lazy=false overrides current bg
+    event = "BufRead",
+  },
   {
     "navarasu/onedark.nvim",
     --   priority = 1000,
@@ -45,39 +66,6 @@ return {
     end,
   },
   {
-    "ThePrimeagen/vim-be-good",
-    event = "VeryLazy",
-  },
-  {
-    "ThePrimeagen/harpoon",
-  },
-  {
-    "ambv/black",
-    -- event = "VeryLazy",
-    ft = "python",
-  },
-  {
-    "dsznajder/vscode-es7-javascript-react-snippets",
-    -- event = "VeryLazy",
-    ft = {
-      "javascript",
-      "javascriptreact",
-      "typescriptreact",
-      "typescript",
-    },
-    run = "yarn install --frozen-lockfile && yarn compile",
-  },
-  -- {
-  --   "github/copilot.vim"
-  -- event = "VeryLazy"
-  -- },
-  {
-    "vimpostor/vim-tpipeline",
-    lazy = false,
-    -- priority = 1000,
-    -- event = "VeryLazy"
-  },
-  {
     "tpope/vim-eunuch",
     event = "VeryLazy",
   },
@@ -93,7 +81,37 @@ return {
     event = "VeryLazy",
     config = function() require("telescope").load_extension "projects" end,
   },
-  --- Go Plugins & Dap
+  {
+    "ThePrimeagen/vim-be-good",
+    event = "VeryLazy",
+  },
+  {
+    "ThePrimeagen/harpoon",
+  },
+  -- INFO: Python Plugins
+  {
+    "ambv/black",
+    -- event = "VeryLazy",
+    ft = "python",
+  },
+  -- INFO: js Plugins
+  {
+    "dsznajder/vscode-es7-javascript-react-snippets",
+    -- event = "VeryLazy",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "typescriptreact",
+      "typescript",
+    },
+    run = "yarn install --frozen-lockfile && yarn compile",
+  },
+  -- INFO: AI Plugins
+  -- {
+  --   "github/copilot.vim"
+  -- event = "VeryLazy"
+  -- },
+  -- INFO:  Go Plugins & Dap
   {
     "ray-x/go.nvim",
     dependencies = { -- optional packages
@@ -112,10 +130,16 @@ return {
     dependencies = "mfussenegger/nvim-dap",
     config = function(_, opts) require("dap-go").setup(opts) end,
   },
-  --- Vim Tmux integration
+  -- INFO: Vim Tmux integration Plugins
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
+  },
+  {
+    "vimpostor/vim-tpipeline",
+    lazy = false,
+    -- priority = 1000,
+    -- event = "VeryLazy"
   },
   -- {
   --   "catppuccin/nvim",
