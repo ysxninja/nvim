@@ -23,13 +23,12 @@ return {
     config = function()
       require("todo-comments").setup {
         gui_style = {
-          -- fg = "NONE",  -- NONE / BOLD
-          -- bg = "NONE",
+          fg = "BOLD", -- NONE / BOLD
         },
         highlight = {
           before = "",
-          keyword = "wide", -- wide, fg, bg, wide_bg, wide_fg
-          after = "fg",
+          keyword = "fg", -- wide, fg, bg, wide_bg, wide_fg
+          after = "",
         },
       }
     end,
