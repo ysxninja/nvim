@@ -32,6 +32,7 @@ return {
     ["<leader>rb"] = { "<cmd>GoBuild<cr>", desc = "Build go project" },
     ["<leader>ri"] = { "<cmd>GoInstall<cr>", desc = "Install go project" },
     ["<leader>rr"] = { "<cmd>GoRun<cr>", desc = "Run go project" },
+    ["<leader>rs"] = { "<cmd>GoStop<cr>", desc = "Stop go project" },
     ["<leader>rt"] = { "<cmd>GoTest<cr>", desc = "Run test on go project" },
 
     ["<C-h>"] = { "<cmd>TmuxNavigateLeft<cr>", desc = "window left" },
