@@ -1,14 +1,4 @@
 return {
-  -- You can also add new plugins here as well:
-  -- Add plugins, the lazy syntax
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp_signature").setup()
-  --   end,
-  -- },
   -- INFO: Dev Productivity PLUGINS
   {
     "folke/persistence.nvim",
@@ -49,22 +39,6 @@ return {
         cancel = "<c-e>",
       },
     },
-  },
-  {
-    "navarasu/onedark.nvim",
-    --   priority = 1000,
-    config = function()
-      require("onedark").setup {
-        style = "dark",
-        transparent = true,
-      }
-      require("onedark").load()
-      -- require('lualine').setup {
-      --   options = {
-      --     theme = 'onedark'
-      --   }
-      -- }
-    end,
   },
   {
     "vimwiki/vimwiki",
@@ -166,15 +140,4 @@ return {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
-  {
-    "vimpostor/vim-tpipeline",
-    lazy = false,
-    -- priority = 1000,
-    -- event = "VeryLazy"
-  },
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   priority = 1000,
-  -- },
 }
