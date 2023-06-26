@@ -1,11 +1,54 @@
+-- local utils = require "user.utils"
+-- local astro_utils = require "astronvim.utils"
+local mark = require "harpoon.mark"
+local ui = require "harpoon.ui"
 -- Mapping data with "desc" stored directly by vim.keymap.set().
 --
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
-return {
-  -- first key is the mode
+local mappings = {
+  --  Normal
   n = {
+    -- disable default bindings
+    ["<C-Down>"] = false,
+    ["<C-Left>"] = false,
+    ["<C-Right>"] = false,
+    ["<C-Up>"] = false,
+    ["<C-q>"] = false,
+    ["<C-s>"] = false,
+    ["q:"] = ":",
+    -- better buffer navigation
+    ["]b"] = false,
+    ["[b"] = false,
+    ["<S-l>"] = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    ["<S-h>"] = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
+    -- -- vim-sandwich
+    -- ["s"] = "<Nop>",
+    ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
+    ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+    ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template Using <++>" },
+
+    ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
+    -- better search
+    -- n = { utils.better_search "n", desc = "Next search" },
+    -- N = { utils.better_search "N", desc = "Previous search" },
+    -- better increment/decrement
+    ["-"] = { "<c-x>", desc = "Descrement number" },
+    ["+"] = { "<c-a>", desc = "Increment number" },
+    -- Trouble Diagnostics
+    ["<leader>x"] = { desc = "󰒡 Trouble" },
+    ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
+    ["<leader>xX"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+    ["<leader>xl"] = { "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+    ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+    ["<leader>xT"] = { "<cmd>TodoTrouble<cr>", desc = "TODOs (Trouble)" },
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
@@ -39,9 +82,57 @@ return {
     ["<C-l>"] = { "<cmd>TmuxNavigateRight<cr>", desc = "window right" },
     ["<C-j>"] = { "<cmd>TmuxNavigateDown<cr>", desc = "window down" },
     ["<C-k>"] = { "<cmd>TmuxNavigateUp<CR>", desc = "window up" },
+
+    ["<leader>d"] = { [["_d]], desc = "del _d / debugging" },
+    -- copy without sending to system clipboard
+    ["<leader>y"] = { [["+y]] },
+    ["<leader>Y"] = { [["+Y]] },
+    -- harpoon
+    ["<leader>a"] = { function() mark.add_file() end, desc = "Harpoon add" },
+    ["<leader>v"] = { function() ui.toggle_quick_menu() end, desc = "Harpoon toggle" },
+    ["<leader>1"] = { function() ui.nav_file(1) end, desc = "1st harpoon" },
+    ["<leader>2"] = { function() ui.nav_file(2) end, desc = "2nd harpoon" },
+    ["<leader>3"] = { function() ui.nav_file(3) end, desc = "3rd harpoon" },
+    ["<leader>4"] = { function() ui.nav_file(4) end, desc = "4th harpoon" },
   },
+  --- Visual and Select
+  v = {
+    -- send deleted content to abyss
+    ["<leader>d"] = { [["_d]], desc = "Delete and send to abyss" },
+    -- copy without sending to system clipboard
+    ["<leader>y"] = { [["+y]] },
+  },
+  -- Visual
+  x = {
+    --- paste without overwriting current register with deleted content
+    ["<leader>p"] = { [["_dP]], desc = "Delete and send to abyss then Paste" },
+    -- line text-objects e.g delete inside line dil
+    ["il"] = { "g_o^", desc = "Inside line text object" },
+    ["al"] = { "$o^", desc = "Around line text object" },
+    -- vim-sandwich
+    -- ["s"] = "<Nop>",
+  },
+  -- Operator-pending
+  o = {
+    -- line text-objects e.g delete inside line dil
+    ["il"] = { "g_o^", desc = "Inside line text object" },
+    ["al"] = { "$o^", desc = "Around line text object" },
+  },
+  -- Terminal Job
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
 }
+
+-- add more text objects for "in" and "around"
+for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
+  for _, mode in ipairs { "x", "o" } do
+    mappings[mode]["i" .. char] =
+      { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
+    mappings[mode]["a" .. char] =
+      { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
+  end
+end
+
+return mappings

@@ -1,16 +1,16 @@
 return {
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin",     -- remote to use
-    channel = "stable",    -- "stable" or "nightly"
-    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "nightly",    -- branch name (NIGHTLY ONLY)
-    commit = nil,          -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false,  -- skip prompts about breaking changes
+    remote = "origin", -- remote to use
+    channel = "stable", -- "stable" or "nightly"
+    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "nightly", -- branch name (NIGHTLY ONLY)
+    commit = nil, -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false, -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_quit = false,     -- automatically quit the current session after a successful update
-    remotes = {            -- easily add new remotes to track
+    auto_quit = false, -- automatically quit the current session after a successful update
+    remotes = { -- easily add new remotes to track
       --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
       --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
@@ -34,7 +34,7 @@ return {
         settings = {
           gopls = {
             completeUnimported = true,
-            usePlaceholders = true,
+            -- usePlaceholders = true,
             -- analyses = {
             --   unusedparams = true,
             -- },
@@ -113,33 +113,5 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-    -- -- Rust
-    -- vim.g.rustfmt_autosave = 1
-    -- -- Copilot
-    -- vim.g.copilot_no_tab_map = true
-    -- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-    -- vim.g.copilot_filetypes = {
-    --   ["*"] = false,
-    --   ["javascript"] = true,
-    --   ["typescript"] = true,
-    --   ["lua"] = false,
-    --   ["rust"] = true,
-    --   ["c"] = true,
-    --   ["c#"] = true,
-    --   ["c++"] = true,
-    --   ["go"] = true,
-    --   ["python"] = true,
-    -- }
-    -- -- Set key bindings
-    -- -- vim.keymap.set("n", "<C-s>", ":w!<CR>")
-    --
-    -- -- Set autocommands\
-    -- vim.cmd [[autocmd FileType * setlocal formatoptions-=ro]]
-    -- vim.api.nvim_create_augroup("packer_conf", { clear = true })
-    -- vim.api.nvim_create_autocmd("BufWritePost", {
-    --   desc = "Sync packer after modifying plugins.lua",
-    --   group = "packer_conf",
-    --   pattern = "plugins.lua",
-    --   command = "source <afile> | PackerSync",
   end,
 }
