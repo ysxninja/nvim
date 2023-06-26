@@ -92,6 +92,7 @@ return {
   },
   {
     "ThePrimeagen/harpoon",
+    lazy = false,
   },
   -- INFO: Python Plugins
   {
