@@ -136,6 +136,10 @@ return {
     dependencies = "mfussenegger/nvim-dap",
     config = function(_, opts) require("dap-go").setup(opts) end,
   },
+  -- Snippets
+  {
+    "rafamadriz/friendly-snippets",
+  },
   -- INFO: Vim Tmux integration Plugins
   {
     "christoomey/vim-tmux-navigator",
