@@ -19,8 +19,9 @@ local mappings = {
     ["<C-s>"] = false,
     ["q:"] = ":",
     -- better buffer navigation
-    ["]b"] = false,
-    ["[b"] = false,
+    -- ["]b"] = false,
+    -- ["[b"] = false,
+    -- alternate buffer navigation
     ["<S-l>"] = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Next buffer",
@@ -150,9 +151,9 @@ local mappings = {
 for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
   for _, mode in ipairs { "x", "o" } do
     mappings[mode]["i" .. char] =
-      { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
+    { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
     mappings[mode]["a" .. char] =
-      { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
+    { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
   end
 end
 
