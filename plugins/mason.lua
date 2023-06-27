@@ -19,6 +19,20 @@ return {
         -- "tailwindcss"
       },
     },
+    -- -- Use gopls setup provided by go.nvim
+    -- config = function()
+    --   -- setup your go.nvim
+    --   -- make sure lsp_cfg is disabled
+    --   require("mason").setup()
+    --   require("mason-lspconfig").setup()
+    --   require('go').setup {
+    --     lsp_cfg = false
+    --     -- other setups...
+    --   }
+    --   local cfg = require 'go.lsp'.config() -- config() return the go.nvim gopls setup
+    --
+    --   require('lspconfig').gopls.setup(cfg)
+    -- end,
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
@@ -27,17 +41,17 @@ return {
     opts = {
       ensure_installed = {
         -- Formatters
-        "prettier", -- for web dev
-        "stylua", -- for lua
-        "black", -- for python
-        "shfmt", -- for shell > bash etc
-        "yamlfix", -- for yaml
+        "prettier",   -- for web dev
+        -- "stylua",     -- for lua
+        "black",      -- for python
+        "shfmt",      -- for shell > bash etc
+        "yamlfix",    -- for yaml
         -- Linters
-        "eslint_d", -- Js and Ts
+        "eslint_d",   -- Js and Ts
         "shellcheck", -- Shell
         -- "tflint",  -- Terraform
-        "yamllint", -- Yaml
-        "ruff", -- Python
+        "yamllint",   -- Yaml
+        "ruff",       -- Python
       },
     },
   },
