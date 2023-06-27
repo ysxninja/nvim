@@ -59,6 +59,7 @@ local mappings = {
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template Using <++>" },
 
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
+    ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
     -- Trouble Diagnostics
     ["<leader>x"] = { desc = "󰒡 Trouble" },
     ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
