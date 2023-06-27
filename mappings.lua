@@ -16,6 +16,7 @@ local mappings = {
     ["<C-Right>"] = false,
     ["<C-Up>"] = false,
     ["<C-q>"] = false,
+    ["<leader>q"] = false,
     ["<C-s>"] = false,
     ["q:"] = ":",
     -- better buffer navigation
@@ -122,7 +123,7 @@ local mappings = {
   },
   i = {
     -- signature help, fails silently so attach always
-    ["<C-l>"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
+    ["<C-k>"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
   },
   -- Visual
@@ -130,16 +131,16 @@ local mappings = {
     --- paste without overwriting current register with deleted content
     ["<leader>p"] = { [["_dP]], desc = "Delete and send to abyss then Paste" },
     -- line text-objects e.g delete inside line dil
-    ["il"] = { "g_o^", desc = "Inside line text object" },
-    ["al"] = { "$o^", desc = "Around line text object" },
+    -- ["il"] = { "g_o^", desc = "Inside line text object" },
+    -- ["al"] = { "$o^", desc = "Around line text object" },
     -- vim-sandwich
     -- ["s"] = "<Nop>",
   },
   -- Operator-pending
   o = {
     -- line text-objects e.g delete inside line dil
-    ["il"] = { "g_o^", desc = "Inside line text object" },
-    ["al"] = { "$o^", desc = "Around line text object" },
+    -- ["il"] = { "g_o^", desc = "Inside line text object" },
+    -- ["al"] = { "$o^", desc = "Around line text object" },
   },
   -- Terminal Job
   t = {
@@ -149,13 +150,13 @@ local mappings = {
 }
 
 -- add more text objects for "in" and "around"
-for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
-  for _, mode in ipairs { "x", "o" } do
-    mappings[mode]["i" .. char] =
-    { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
-    mappings[mode]["a" .. char] =
-    { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
-  end
-end
+-- for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
+--   for _, mode in ipairs { "x", "o" } do
+--     mappings[mode]["i" .. char] =
+--     { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
+--     mappings[mode]["a" .. char] =
+--     { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
+--   end
+-- end
 
 return mappings
