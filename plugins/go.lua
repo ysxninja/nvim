@@ -93,7 +93,7 @@ return {
       width = 0.45,       -- width of float window if not auto
       height = 0.98,      -- height of float window if not auto
     },
-    trouble = false,      -- true: use trouble to open quickfix
+    trouble = true,       -- true: use trouble to open quickfix
     test_efm = false,     -- errorfomat for quickfix, default mix mode, set to true will be efm only
     luasnip = false,      -- enable included luasnip snippets. you can also disable while add lua/snips folder to luasnip load
     --  Do not enable this if you already added the path, that will duplicate the entries
