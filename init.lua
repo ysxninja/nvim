@@ -55,6 +55,7 @@ return {
       javascript = { "javascriptreact", "html" },
       javascriptreact = { "html" },
       typescriptreact = { "html" },
+      vimwiki = { "markdown" },
     },
     -- Configure luasnip loaders (vscode, lua, and/or snipmate)
     vscode = {
