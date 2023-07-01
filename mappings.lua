@@ -100,7 +100,7 @@ local mappings = {
     ["<C-h>"] = { "<cmd>TmuxNavigateLeft<cr>", desc = "window left" },
     ["<C-l>"] = { "<cmd>TmuxNavigateRight<cr>", desc = "window right" },
     ["<C-j>"] = { "<cmd>TmuxNavigateDown<cr>", desc = "window down" },
-    ["<C-k>"] = { "<cmd>TmuxNavigateUp<CR>", desc = "window up" },
+    ["<C-k>"] = { "<cmd>TmuxNavigateUp<cr>", desc = "window up" },
 
     ["<leader>d"] = { [["_d]], desc = "del _d / debugging" },
     -- copy without sending to system clipboard
@@ -113,6 +113,12 @@ local mappings = {
     ["<leader>2"] = { function() ui.nav_file(2) end, desc = "2nd harpoon" },
     ["<leader>3"] = { function() ui.nav_file(3) end, desc = "3rd harpoon" },
     ["<leader>4"] = { function() ui.nav_file(4) end, desc = "4th harpoon" },
+    -- markmap
+    ["<leader>m"] = { name = "Markmap" },
+    ["<leader>mo"] = { "<cmd>MarkmapOpen<cr>", desc = "Markmap Open" },
+    ["<leader>ms"] = { "<cmd>MarkmapSave<cr>", desc = "Markmap Save" },
+    ["<leader>mw"] = { "<cmd>MarkmapWatch<cr>", desc = "Markmap Watch" },
+    ["<leader>mx"] = { "<cmd>MarkmapWatchStop<cr>", desc = "Markmap Watch Stop" },
   },
   --- Visual and Select
   v = {

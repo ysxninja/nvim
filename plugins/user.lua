@@ -101,17 +101,17 @@ return {
     ft = "python",
   },
   -- INFO: js Plugins
-  {
-    "dsznajder/vscode-es7-javascript-react-snippets",
-    -- event = "VeryLazy",
-    ft = {
-      "javascript",
-      "javascriptreact",
-      "typescriptreact",
-      "typescript",
-    },
-    run = "yarn install --frozen-lockfile && yarn compile",
-  },
+  -- {
+  --   "dsznajder/vscode-es7-javascript-react-snippets",
+  --   -- event = "VeryLazy",
+  --   ft = {
+  --     "javascript",
+  --     "javascriptreact",
+  --     "typescriptreact",
+  --     "typescript",
+  --   },
+  --   build = "yarn install --frozen-lockfile && yarn compile",
+  -- },
   -- INFO: AI Plugins
   -- {
   --   "github/copilot.vim"
