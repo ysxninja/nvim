@@ -61,21 +61,21 @@ return {
   },
   {
     "tpope/vim-eunuch",
-    cmd = {
-      "Remove",
-      "Delete",
-      "Move",
-      "Chmod",
-      "Copy",
-      "Mkdir",
-      "Cfind",
-      "Clocate",
-      "Lfind",
-      "Wall",
-      "SudoWrite",
-      "SudoEdit",
-    },
-    -- event = "User AstroFile",
+    -- cmd = {
+    --   "Remove",
+    --   "Delete",
+    --   "Move",
+    --   "Chmod",
+    --   "Copy",
+    --   "Mkdir",
+    --   "Cfind",
+    --   "Clocate",
+    --   "Lfind",
+    --   "Wall",
+    --   "SudoWrite",
+    --   "SudoEdit",
+    -- },
+    event = "User AstroFile",
   },
   {
     "ahmedkhalf/project.nvim",
@@ -93,6 +93,13 @@ return {
   {
     "ThePrimeagen/harpoon",
     lazy = false,
+  },
+  {
+    "stevearc/oil.nvim",
+    cmd = "Oil",
+    opts = {},
+    -- Optional dependencies
+    -- dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   -- INFO: Python Plugins
   {
