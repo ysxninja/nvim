@@ -78,14 +78,6 @@ return {
     event = "User AstroFile",
   },
   {
-    "ahmedkhalf/project.nvim",
-    event = "VeryLazy",
-    opts = {
-      ignore_lsp = { "lua_ls", "gopls" },
-    },
-    config = function(_, opts) require("project_nvim").setup(opts) end,
-  },
-  {
     "ThePrimeagen/vim-be-good",
     cmd = "VimBeGood",
     -- event = "User AstroFile",

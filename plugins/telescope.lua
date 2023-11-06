@@ -6,7 +6,12 @@ return {
     "nvim-telescope/telescope-live-grep-args.nvim",
     "nvim-telescope/telescope-hop.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
-    "ahmedkhalf/project.nvim", -- defined in  ./editor.lua
+    {
+      "jay-babu/project.nvim",
+      name = "project_nvim",
+      event = "VeryLazy",
+      opts = { ignore_lsp = { "lua_ls", "julials" } },
+    }
   },
   opts = function(_, opts)
     local telescope = require "telescope"
