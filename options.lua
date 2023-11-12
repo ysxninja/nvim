@@ -6,7 +6,8 @@ return {
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-    wrap = false, -- sets vim.opt.wrap
+    -- TODO: set wrap to false when using a high performance machine
+    wrap = true, -- sets vim.opt.wrap
     mouse = "", -- sets vim.opt.mouse to disabled
     conceallevel = 2, ---sets vim.opt.conceallevel
   },
