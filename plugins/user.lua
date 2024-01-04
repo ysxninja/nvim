@@ -20,6 +20,13 @@ return {
           keyword = "fg", -- wide, fg, bg, wide_bg, wide_fg
           after = "",
         },
+        keywords = {
+          DEBUG = {
+            icon = " ",  -- icon used for the sign and in search results
+            color = "#808080", -- can be a hex, or a named color
+            alt = { "DEBUGINFO"},
+          }
+        },
       }
     end,
     opts = {},
@@ -93,6 +100,11 @@ return {
     -- Optional dependencies
     -- dependencies = { "nvim-tree/nvim-web-devicons" },
   },
+  {
+    -- Time tracking plugin; config /opt/wakapi/
+    "wakatime/vim-wakatime",
+    event = "VeryLazy",
+  },
   -- INFO: Python Plugins
   {
     "ambv/black",
@@ -143,6 +155,7 @@ return {
   -- INFO: Vim Tmux integration Plugins
   {
     "christoomey/vim-tmux-navigator",
+    -- event = "VeryLazy",
     lazy = false,
   },
 }
