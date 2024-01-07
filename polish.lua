@@ -20,6 +20,7 @@ return function()
       qmd = "markdown",
       yml = yaml_ft,
       yaml = yaml_ft,
+      rasi = "rasi",
     },
     -- pattern = {
     --   ["/path/somefile.*"] = "markdown",
