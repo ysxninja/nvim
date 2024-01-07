@@ -17,6 +17,7 @@ return {
       "jsonc",
       "typescript",
       "javascript",
+      "rasi",
       "tsx",
       "yaml",
       "regex",
