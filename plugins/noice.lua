@@ -40,8 +40,8 @@ return {
         { view = "mini", filter = { event = "msg_show", find = "%d+%s*.+;%s*before%s*#%d+%S+" } }, -- line/change notifications to mini / cmdline
         { view = "mini", filter = { event = "msg_show", find = "%d+%s*.+;%s*after%s*#%d+%S+" }, }, -- line/change notifications to mini / cmdline
         { view = "mini", filter = { event = "msg_show", find = "Already at newest change" } },     -- notification to mini
-        { view = "vsplit", filter = { event = "msg_show", kind= "" } },        -- route kind unknown e.g. :TSConfigInfo
-        { view = "vsplit", filter = { event = "msg_show", min_height=35 } },   -- route more than 35 line messages to vsplit
+        -- { view = "split", filter = { event = "msg_show", kind= "" } },        -- route kind unknown e.g. :TSConfigInfo
+        { view = "messages", filter = { event = "msg_show", min_height=35 } },   -- route more than 35 line messages
       },
       presets = { long_message_to_split = true },
     },
