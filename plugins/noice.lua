@@ -21,11 +21,11 @@ return {
         -- NOTE: If you enable messages, then the cmdline is enabled automatically.
         -- This is a current Neovim limitation.
         enabled = true,              -- enables the Noice messages UI
-        view = "virtualtext",             -- default view for messages
-        view_error = "virtualtext",       -- view for errors
-        view_warn = "virtualtext",        -- view for warnings
-        view_history = "messages",   -- view for :messages
-        view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+        view = "mini",             -- default view for messages
+        view_error = "mini",       -- view for errors
+        view_warn = "mini",        -- view for warnings
+        view_history = "messages",    -- view for :messages
+        view_search = false,       -- view for search count messages. virtualtext, Set to `false` to disable
       },
       lsp = {
         progress = { enabled = false },
@@ -37,6 +37,11 @@ return {
         { filter = { event = "msg_show", find = "^%d+ more lines$" },   opts = { skip = true } }, -- skip paste notifications
         { filter = { event = "msg_show", find = "^%d+ fewer lines$" },  opts = { skip = true } }, -- skip delete notifications
         { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
+        { view = "mini", filter = { event = "msg_show", find = "%d+%s*.+;%s*before%s*#%d+%S+" } }, -- line/change notifications to mini / cmdline
+        { view = "mini", filter = { event = "msg_show", find = "%d+%s*.+;%s*after%s*#%d+%S+" }, }, -- line/change notifications to mini / cmdline
+        { view = "mini", filter = { event = "msg_show", find = "Already at newest change" } },     -- notification to mini
+        { view = "vsplit", filter = { event = "msg_show", kind= "" } },        -- route kind unknown e.g. :TSConfigInfo
+        { view = "vsplit", filter = { event = "msg_show", min_height=35 } },   -- route more than 35 line messages to vsplit
       },
       presets = { long_message_to_split = true },
     },
