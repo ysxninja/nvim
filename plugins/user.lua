@@ -94,6 +94,10 @@ return {
     lazy = false,
   },
   {
+    "ThePrimeagen/vim-apm",
+    keys = { {"<leader>k", function() require("vim-apm"):toggle_monitor() end, desc="APM"} },
+  },
+  {
     "stevearc/oil.nvim",
     cmd = "Oil",
     opts = {},
