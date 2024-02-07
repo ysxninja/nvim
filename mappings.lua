@@ -43,16 +43,16 @@ local mappings = {
     ["<Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
     ["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
     -- buffer switching
-    ["<Tab>"] = {
-      function()
-        if #vim.t.bufs > 1 then
-          require("telescope.builtin").buffers { sort_mru = true, ignore_current_buffer = true }
-        else
-          astro_utils.notify "No other buffers open"
-        end
-      end,
-      desc = "Switch Buffers",
-    },
+    -- ["<Tab>"] = {
+    --   function()
+    --     if #vim.t.bufs > 1 then
+    --       require("telescope.builtin").buffers { sort_mru = true, ignore_current_buffer = true }
+    --     else
+    --       astro_utils.notify "No other buffers open"
+    --     end
+    --   end,
+    --   desc = "Switch Buffers",
+    -- },
     -- -- vim-sandwich
     -- ["s"] = "<Nop>",
     ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
