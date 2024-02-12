@@ -130,7 +130,9 @@ return {
   -- INFO: AI Plugins
   {
     "github/copilot.vim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    -- enabled = false,
+    cmd = "Copilot",
     init = function()
       vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
           expr = true,
