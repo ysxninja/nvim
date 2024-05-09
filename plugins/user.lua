@@ -67,6 +67,11 @@ return {
     end,
   },
   {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+  },
+  {
     "tpope/vim-eunuch",
     -- cmd = {
     --   "Remove",
