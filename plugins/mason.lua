@@ -51,7 +51,7 @@ return {
         "shellcheck", -- Shell
         -- "tflint",  -- Terraform
         "yamllint",   -- Yaml
-        "ruff",       -- Python
+        "ruff-lsp",       -- Python
       },
     },
   },
