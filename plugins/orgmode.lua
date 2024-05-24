@@ -1,40 +1,80 @@
 return {
-  -- {
-  --   "nvim-orgmode/orgmode",
-  --   ft = { "org" },
-  --   dependencies = { "akinsho/org-bullets.nvim", "lukas-reineke/headlines.nvim" },
-  --   config = function()
-  --     require("orgmode").setup {}
-  --     -- init.lua
+  -- nvim-orgmode
+  {
+  'nvim-orgmode/orgmode',
+  event = 'VeryLazy',
+  ft = { 'org' },
+  config = function()
+    -- Setup orgmode
+    require('orgmode').setup({
+      org_agenda_files = '~/orgfiles/**/*',
+      org_default_notes_file = '~/orgfiles/refile.org',
+    })
+
+  end,
+  },
+  -- orgmode-plugins
+  -- org-roam
+  {
+    "chipsenkbeil/org-roam.nvim",
+    event = 'VeryLazy',
+    ft = { 'org' },
+    tag = "0.1.0",
+    dependencies = {
+      {
+        "nvim-orgmode/orgmode",
+        tag = "0.3.4",
+      },
+    },
+    config = function()
+      require("org-roam").setup({
+       directory = "~/orgfiles",
+      })
+    end
+  },
   --
-  --     -- Load custom treesitter grammar for org filetype
-  --     require("orgmode").setup_ts_grammar()
+  -- Org-bullets
+  {
+    "akinsho/org-bullets.nvim",
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function ()
+      -- Setup bullets
+      require('org-bullets').setup({
+        -- concealcursor = false, -- If false then when the cursor is on a line underlying characters are visible
+        symbols = {
+          -- list symbol
+          -- list = "•",
+          -- headlines can be a list
+          -- headlines = { "◉", "○", "✸", "✿" },
+          -- or a function that receives the defaults and returns a list
+          -- headlines = function(default_list)
+            --table.insert(default_list, "♥")
+            --return default_list
+          -- end,
+          -- or false to disable the symbol. Works for all symbols
+          -- headlines = false,
+          -- checkboxes = {
+          --   half = { "", "OrgTSCheckboxHalfChecked" },
+          --   done = { "✓", "OrgDone" },
+          --   todo = { "˟", "OrgTODO" },
+          -- },
+        }
+      })
+    end,
+  },
+
   --
-  --     -- Treesitter configuration
-  --     require("nvim-treesitter.configs").setup {
-  --       -- If TS highlights are not enabled at all, or disabled via `disable` prop,
-  --       -- highlighting will fallback to default Vim syntax highlighting
-  --       highlight = {
-  --         enable = true,
-  --         -- Required for spellcheck, some LaTex highlights and
-  --         -- code block highlights that do not have ts grammar
-  --         additional_vim_regex_highlighting = { "org" },
-  --       },
-  --       ensure_installed = { "org" }, -- Or run :TSUpdate org
-  --     }
+  -- headlines, adds highlights for markdown, orgmode and neorg
+  {
+    "lukas-reineke/headlines.nvim",
+    event = 'VeryLazy',
+    enabled = false,
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    -- ft = { 'org' },
+    config = function()
+      require("headlines").setup()
+    end,
+  },
   --
-  --     require("orgmode").setup {
-  --       org_agenda_files = { "~/Dropbox/org/*", "~/my-orgs/**/*" },
-  --       org_default_notes_file = "~/Dropbox/org/refile.org",
-  --     }
-  --
-  --     require("org-bullets").setup {}
-  --   end,
-  --   lazy = false,
-  -- },
-  -- {
-  --   "lukas-reineke/headlines.nvim",
-  --   dependencies = "nvim-treesitter/nvim-treesitter",
-  --   config = true,
-  -- },
 }

@@ -24,7 +24,9 @@ vim.api.nvim_create_autocmd("FileType", {
             local meta_start = vim.fn.search('@document.meta', 'nw')
             if meta_start > 0 then
                 vim.fn.setpos('.', {bufnr, meta_start, 1, 0})
-                vim.cmd('normal! zc')
+                -- Use pcall to catch errors and prevent them from propagating
+                pcall(vim.cmd, 'normal! zc')
+                -- vim.cmd('normal! zc')
                 -- Move to the last cursor position
                 vim.cmd('normal! g`"')
             end
