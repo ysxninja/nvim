@@ -10,6 +10,8 @@ return {
     wrap = true, -- sets vim.opt.wrap
     mouse = "", -- sets vim.opt.mouse to disabled
     conceallevel = 2, ---sets vim.opt.conceallevel
+    foldmethod = "manual",
+    foldlevelstart = 99,
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
