@@ -9,6 +9,7 @@ return {
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
         { name = "neorg", priority = 700 }, -- new source
+        { name = "orgmode", priority = 700 }, -- new source
       }
       return opts
     end,
