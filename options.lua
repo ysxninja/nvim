@@ -12,6 +12,7 @@ return {
     conceallevel = 2, ---sets vim.opt.conceallevel
     foldmethod = "manual",
     foldlevelstart = 99,
+    swapfile = false,
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

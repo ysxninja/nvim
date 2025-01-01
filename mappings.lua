@@ -37,11 +37,11 @@ local mappings = {
     -- better increment/decrement
     ["-"] = { "<c-x>", desc = "Descrement number" },
     ["+"] = { "<c-a>", desc = "Increment number" },
-    -- resize with arrows
-    ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
-    ["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
-    ["<Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
-    ["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
+    -- resize with Shift+arrows
+    ["<S-Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
+    ["<S-Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
+    ["<S-Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
+    ["<S-Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
     -- buffer switching
     -- ["<Tab>"] = {
     --   function()
@@ -98,10 +98,10 @@ local mappings = {
     ["<leader>rs"] = { "<cmd>GoStop<cr>", desc = "Stop go project" },
     ["<leader>rt"] = { "<cmd>GoTest<cr>", desc = "Run test on go project" },
 
-    ["<C-h>"] = { "<cmd>TmuxNavigateLeft<cr>", desc = "window left" },
-    ["<C-l>"] = { "<cmd>TmuxNavigateRight<cr>", desc = "window right" },
-    ["<C-j>"] = { "<cmd>TmuxNavigateDown<cr>", desc = "window down" },
-    ["<C-k>"] = { "<cmd>TmuxNavigateUp<cr>", desc = "window up" },
+    ["<Left>"] = { "<cmd>TmuxNavigateLeft<cr>", desc = "window left" },
+    ["<Right>"] = { "<cmd>TmuxNavigateRight<cr>", desc = "window right" },
+    ["<Down>"] = { "<cmd>TmuxNavigateDown<cr>", desc = "window down" },
+    ["<Up>"] = { "<cmd>TmuxNavigateUp<cr>", desc = "window up" },
 
     ["<leader>d"] = { [["_d]], desc = "del _d / debugging" },
     -- copy without sending to system clipboard

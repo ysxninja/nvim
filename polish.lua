@@ -18,8 +18,8 @@ return function()
   vim.filetype.add {
     extension = {
       qmd = "markdown",
-      yml = yaml_ft,
-      yaml = yaml_ft,
+      -- yml = yaml_ft,
+      -- yaml = yaml_ft,
       rasi = "rasi",
     },
     -- pattern = {

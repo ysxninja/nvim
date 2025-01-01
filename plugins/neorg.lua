@@ -1,6 +1,6 @@
 return {
   "nvim-neorg/neorg",
-  dependencies = { "nvim-lua/plenary.nvim", "luarocks.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim", "luarocks.nvim", "nvim-treesitter" },
   cmd = { "Neorg" },
   lazy = false,
   config = function()
