@@ -147,12 +147,12 @@ return {
         ["<leader>y"] = { [["+y]] },
         ["<leader>Y"] = { [["+Y]] },
         -- harpoon
-        ["<leader>a"] = { function() mark.add_file() end, desc = "Harpoon add" },
-        ["<leader>v"] = { function() ui.toggle_quick_menu() end, desc = "Harpoon toggle" },
-        ["<leader>1"] = { function() ui.nav_file(1) end, desc = "1st harpoon" },
-        ["<leader>2"] = { function() ui.nav_file(2) end, desc = "2nd harpoon" },
-        ["<leader>3"] = { function() ui.nav_file(3) end, desc = "3rd harpoon" },
-        ["<leader>4"] = { function() ui.nav_file(4) end, desc = "4th harpoon" },
+        ["<leader>a"] = { function() require("harpoon.mark").add_file() end, desc = "Harpoon add" },
+        ["<leader>v"] = { function() require("harpoon.ui").toggle_quick_menu() end, desc = "Harpoon toggle" },
+        ["<leader>1"] = { function() require("harpoon.ui").nav_file(1) end, desc = "1st harpoon" },
+        ["<leader>2"] = { function() require("harpoon.ui").nav_file(2) end, desc = "2nd harpoon" },
+        ["<leader>3"] = { function() require("harpoon.ui").nav_file(3) end, desc = "3rd harpoon" },
+        ["<leader>4"] = { function() require("harpoon.ui").nav_file(4) end, desc = "4th harpoon" },
         -- markmap
         ["<leader>m"] = { name = " Markmap" }, -- 󱝻
         ["<leader>mo"] = { "<cmd>MarkmapOpen<cr>", desc = "Markmap Open" },
