@@ -173,11 +173,11 @@ return {
         ["<leader>3"] = { function() require("harpoon.ui").nav_file(3) end, desc = "3rd harpoon" },
         ["<leader>4"] = { function() require("harpoon.ui").nav_file(4) end, desc = "4th harpoon" },
         -- markmap
-        ["<leader>m"] = { name = " Markmap" }, -- 󱝻
-        ["<leader>mo"] = { "<cmd>MarkmapOpen<cr>", desc = "Markmap Open" },
-        ["<leader>ms"] = { "<cmd>MarkmapSave<cr>", desc = "Markmap Save" },
-        ["<leader>mw"] = { "<cmd>MarkmapWatch<cr>", desc = "Markmap Watch" },
-        ["<leader>mx"] = { "<cmd>MarkmapWatchStop<cr>", desc = "Markmap Watch Stop" },
+        ["<leader>M"] = { name = " Markmap" }, -- 󱝻
+        ["<leader>Mo"] = { "<cmd>MarkmapOpen<cr>", desc = "Markmap Open" },
+        ["<leader>Ms"] = { "<cmd>MarkmapSave<cr>", desc = "Markmap Save" },
+        ["<leader>Mw"] = { "<cmd>MarkmapWatch<cr>", desc = "Markmap Watch" },
+        ["<leader>Mx"] = { "<cmd>MarkmapWatchStop<cr>", desc = "Markmap Watch Stop" },
       },
 
       --- Visual and Select
