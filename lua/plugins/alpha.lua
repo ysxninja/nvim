@@ -3,13 +3,13 @@ return {
   cmd = "Alpha",
   opts = function()
     local dashboard = require "alpha.themes.dashboard"
-    dashboard.section.header.val = require("user.plugins.alpha.alpha-headers")["random"]
+    dashboard.section.header.val = require("plugins.alpha.alpha-headers")["random"]
     dashboard.section.header.opts = {
       position = "center",
       hl = "DashboardHeader",
     }
 
-    local button = require("astronvim.utils").alpha_button
+    -- local button = require("astrocore").alpha_button
     dashboard.section.buttons.val = {
       dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
       dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
@@ -41,5 +41,4 @@ return {
     dashboard.config.opts.noautocmd = true
     return dashboard
   end,
-  config = require "plugins.configs.alpha",
 }

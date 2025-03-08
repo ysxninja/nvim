@@ -1,3 +1,4 @@
+---@type LazySpec 
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
@@ -19,7 +20,7 @@ return {
     local fb_actions = require("telescope").extensions.file_browser.actions
     local lga_actions = require "telescope-live-grep-args.actions"
     local hop = telescope.extensions.hop
-    return require("astronvim.utils").extend_tbl(opts, {
+    return require("astrocore").extend_tbl(opts, {
       defaults = {
         selection_caret = "  ",
         layout_config = {
@@ -93,8 +94,7 @@ return {
       },
     })
   end,
-  config = function(...)
-    require "plugins.configs.telescope" (...)
+  config = function()
     local telescope = require "telescope"
     telescope.load_extension "fzy_native"
     telescope.load_extension "live_grep_args"

@@ -5,5 +5,4 @@ return {
     or nil,
   dependencies = { "rafamadriz/friendly-snippets" },
   opts = { store_selection_keys = "<C-x>" },
-  config = require "plugins.configs.luasnip",
 }
