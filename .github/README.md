@@ -14,7 +14,7 @@ mv ~/.local/share/nvim ~/.local/share/nvim.bak
 #### Clone AstroNvim
 
 ```shell
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+git clone https://github.com/ysxninja/nvim ~/.config/nvim
 ```
 
 #### Create a new user repository from this template
@@ -26,7 +26,7 @@ You can also just clone this repository directly if you do not want to track you
 #### Clone the repository
 
 ```shell
-git clone https://github.com/ya-suke/nvim ~/.config/nvim/lua/user
+git clone https://github.com/ya-suke/nvim ~/.config/nvim
 ```
 
 #### Start Neovim
