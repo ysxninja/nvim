@@ -1,3 +1,4 @@
+---@type LazySpec 
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
@@ -10,6 +11,7 @@ return {
       "rust",
       "lua",
       "go",
+      "java",
       "gomod",
       "gowork",
       "gosum",

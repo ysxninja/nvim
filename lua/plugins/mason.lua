@@ -1,3 +1,4 @@
+---@type LazySpec
 -- customize mason plugins
 return {
   -- use mason-lspconfig to configure LSP installations
@@ -16,7 +17,7 @@ return {
         "rust_analyzer",
         -- "ts_ls",
         "yamlls",
-        -- "tailwindcss"
+        "tailwindcss",
       },
     },
     -- -- Use gopls setup provided by go.nvim
@@ -41,7 +42,7 @@ return {
     opts = {
       ensure_installed = {
         -- Formatters
-        "prettier",   -- for web dev
+        "prettierd",   -- for web dev
         -- "stylua",     -- for lua
         "black",      -- for python
         "shfmt",      -- for shell > bash etc

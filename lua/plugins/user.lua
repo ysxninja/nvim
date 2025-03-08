@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   -- INFO: Dev Productivity PLUGINS
   {
