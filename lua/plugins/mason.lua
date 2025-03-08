@@ -15,7 +15,7 @@ return {
         "dockerls",
         "pyright",
         "rust_analyzer",
-        -- "ts_ls",
+        "ts_ls",
         "yamlls",
         "tailwindcss",
       },
