@@ -36,12 +36,31 @@ return {
     	conceallevel = 2, ---sets vim.opt.conceallevel
     	foldmethod = "manual",
     	foldlevelstart = 99,
+      spellfile = vim.fn.expand "~/.config/nvim/spell/en.utf-8.add",
+      thesaurus = vim.fn.expand "~/.config/nvim/spell/mthesaur.txt",
+      splitkeep = "screen",
     	swapfile = false,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+      },
+    },
+    signs = {
+      BqfSign = { text = " " .. require("astroui").get_icon "Selected", texthl = "BqfSign" },
+    },
+    autocmds = {
+      auto_spell = {
+        {
+          event = "FileType",
+          desc = "Enable wrap and spell for text like documents",
+          pattern = { "gitcommit", "markdown", "text", "plaintex" },
+          callback = function()
+            vim.opt_local.wrap = true
+            vim.opt_local.spell = true
+          end,
+        },
       },
     },
     -- Mappings can be configured through AstroCore as well.
