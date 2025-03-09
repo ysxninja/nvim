@@ -16,7 +16,7 @@ require("lazy").setup({
   { import = "plugins" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "catppuccin", "astrodark" } },
   ui = { backdrop = 100 },
   performance = {
     rtp = {
@@ -32,17 +32,17 @@ require("lazy").setup({
   },
   -- LuaSnip Options
   luasnip = {
-	  -- Extend filetypes
-	  filetype_extend = {
-		  -- javascript = { "javascriptreact", "html" },
-		  -- javascriptreact = { "html" },
-		  -- typescriptreact = { "html" },
-		  vimwiki = { "markdown" },
-	  },
-	  -- Configure luasnip loaders (vscode, lua, and/or snipmate)
-	  vscode = {
-		  -- Add paths for including more VS Code style snippets in luasnip
-		  paths = {},
-	  },
+    -- Extend filetypes
+    filetype_extend = {
+      -- javascript = { "javascriptreact", "html" },
+      -- javascriptreact = { "html" },
+      -- typescriptreact = { "html" },
+      vimwiki = { "markdown" },
+    },
+    -- Configure luasnip loaders (vscode, lua, and/or snipmate)
+    vscode = {
+      -- Add paths for including more VS Code style snippets in luasnip
+      paths = {},
+    },
   },
 } --[[@as LazyConfig]])
