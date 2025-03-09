@@ -23,10 +23,10 @@ return {
         },
         keywords = {
           DEBUG = {
-            icon = " ",  -- icon used for the sign and in search results
+            icon = " ", -- icon used for the sign and in search results
             color = "#808080", -- can be a hex, or a named color
-            alt = { "DEBUGINFO"},
-          }
+            alt = { "DEBUGINFO" },
+          },
         },
       }
     end,
@@ -37,17 +37,17 @@ return {
     event = "User AstroFile",
     cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
   },
-  {
-    "folke/trouble.nvim",
-    cmd = { "TroubleToggle", "Trouble" },
-    opts = {
-      use_diagnostic_signs = true,
-      action_keys = {
-        close = { "q", "<esc>" },
-        cancel = "<c-e>",
-      },
-    },
-  },
+  -- {
+  --   "folke/trouble.nvim",
+  --   cmd = { "TroubleToggle", "Trouble" },
+  --   opts = {
+  --     use_diagnostic_signs = true,
+  --     action_keys = {
+  --       close = { "q", "<esc>" },
+  --       cancel = "<c-e>",
+  --     },
+  --   },
+  -- },
   {
     "vimwiki/vimwiki",
     branch = "dev",
@@ -67,24 +67,24 @@ return {
       vim.g.vimwiki_global_ext = 0
     end,
   },
-  {
-    "tpope/vim-eunuch",
-    -- cmd = {
-    --   "Remove",
-    --   "Delete",
-    --   "Move",
-    --   "Chmod",
-    --   "Copy",
-    --   "Mkdir",
-    --   "Cfind",
-    --   "Clocate",
-    --   "Lfind",
-    --   "Wall",
-    --   "SudoWrite",
-    --   "SudoEdit",
-    -- },
-    event = "User AstroFile",
-  },
+  -- {
+  --   "tpope/vim-eunuch",
+  --   -- cmd = {
+  --   --   "Remove",
+  --   --   "Delete",
+  --   --   "Move",
+  --   --   "Chmod",
+  --   --   "Copy",
+  --   --   "Mkdir",
+  --   --   "Cfind",
+  --   --   "Clocate",
+  --   --   "Lfind",
+  --   --   "Wall",
+  --   --   "SudoWrite",
+  --   --   "SudoEdit",
+  --   -- },
+  --   event = "User AstroFile",
+  -- },
   {
     "ThePrimeagen/vim-be-good",
     cmd = "VimBeGood",
@@ -95,27 +95,16 @@ return {
     lazy = false,
   },
   {
-    "ThePrimeagen/vim-apm",
-    keys = { {"<leader>k", function() require("vim-apm"):toggle_monitor() end, desc="APM"} },
-  },
-  {
-    "stevearc/oil.nvim",
-    cmd = "Oil",
-    opts = {},
-    -- Optional dependencies
-    -- dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
     -- Time tracking plugin; config /opt/wakapi/
     "wakatime/vim-wakatime",
     event = "VeryLazy",
   },
   -- INFO: Python Plugins
-  {
-    "ambv/black",
-    -- event = "VeryLazy",
-    ft = "python",
-  },
+  -- {
+  --   "ambv/black",
+  --   -- event = "VeryLazy",
+  --   ft = "python",
+  -- },
   -- INFO: js Plugins
   -- {
   --   "dsznajder/vscode-es7-javascript-react-snippets",
@@ -135,13 +124,13 @@ return {
     enabled = false,
     cmd = "Copilot",
     init = function()
-      vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
-          expr = true,
-          replace_keycodes = false
-        })
+      vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+        expr = true,
+        replace_keycodes = false,
+      })
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_assume_mapped = true
-    end
+    end,
   },
   -- INFO:  Go Plugins & Dap
   {
