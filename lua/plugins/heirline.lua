@@ -12,8 +12,8 @@ return {
         status = {
           attributes = { mode = { bold = true } },
           separators = {
-            left = { "", " " },
-            right = { " ", "" },
+            -- left = { "", " " },
+            -- right = { " ", "" },
           },
         },
       },
@@ -25,12 +25,12 @@ return {
     opts.statusline[#opts.statusline] = status.component.builder {
       {
         provider = function()
-          local time = os.date "%H:%M" -- show hour and minute in 24 hour format
+          -- local time = os.date "%H:%M" -- show hour and minute in 24 hour format
           ---@cast time string
-          return status.utils.stylize(time, {
-            icon = { kind = "Clock", padding = { right = 1 } }, -- add icon
-            padding = { right = 1 }, -- pad the right side
-          })
+          -- return status.utils.stylize(time, {
+          --   icon = { kind = "Clock", padding = { right = 1 } }, -- add icon
+          --   padding = { right = 1 }, -- pad the right side
+          -- })
         end,
       },
       update = { "ModeChanged", pattern = "*:*", callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end) },
