@@ -11,7 +11,7 @@ return {
 
     -- local button = require("astrocore").alpha_button
     dashboard.section.buttons.val = {
-      dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+      dashboard.button("s", " " .. " Restore Session", [[:lua require("resession").load() <cr>]]),
       dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
       dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),

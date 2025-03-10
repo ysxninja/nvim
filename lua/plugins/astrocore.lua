@@ -27,13 +27,26 @@ return {
     opts = require("astrocore").extend_tbl(opts, {
       -- Configure core features of AstroNvim
       -- Detached worktree for dotfiles
+      sessions = {
+        -- Configure auto saving
+        autosave = {
+          last = true, -- auto save last session
+          cwd = true, -- auto save session for each working directory
+        },
+        -- Patterns to ignore when saving sessions
+        ignore = {
+          dirs = {}, -- working directories to ignore sessions in
+          filetypes = { "gitcommit", "gitrebase" }, -- filetypes to ignore sessions
+          buftypes = {}, -- buffer types to ignore sessions
+        },
+      },
       git_worktrees = {
         {
           toplevel = vim.env.HOME,
           gitdir = vim.env.HOME .. "/dotfiles",
         },
       },
-      -- icons_enabled = true,
+      icons_enabled = true,
       features = {
         large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
         autopairs = true, -- enable autopairs at start

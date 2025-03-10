@@ -1,13 +1,13 @@
 ---@type LazySpec
 return {
   -- INFO: Dev Productivity PLUGINS
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {
-      -- add any custom options here
-    },
-  },
+  -- {
+  --   "folke/persistence.nvim", -- using resession.nvim
+  --   event = "BufReadPre",
+  --   opts = {
+  --     -- add any custom options here
+  --   },
+  -- },
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
