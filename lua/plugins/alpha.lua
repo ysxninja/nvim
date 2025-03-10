@@ -17,9 +17,9 @@ return {
       dashboard.button("LDR fo", " " .. " Recent files", ":Telescope oldfiles <CR>"),
       dashboard.button("LDR fw", " " .. " Find word", ":Telescope live_grep <CR>"),
       dashboard.button(
-        "LDR p",
+        "LDR fp",
         " " .. " Projects",
-        [[:lua require("telescope").extensions.projects.projects{} <cr>]]
+        [[:lua require("telescope").extensions.project.project{} <cr>]]
       ),
       -- dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
       -- button("LDR n  ", "  New File  "),
