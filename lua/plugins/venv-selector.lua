@@ -21,7 +21,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>v"] = { "<Cmd>VenvSelect<CR>", desc = "Activate virtual environment" },
+            ["<Leader>V"] = { "<Cmd>VenvSelect<CR>", desc = "Activate virtual environment" },
           },
         },
       },

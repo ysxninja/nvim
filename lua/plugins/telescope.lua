@@ -12,6 +12,11 @@ return {
             hidden = vim.tbl_get((vim.uv or vim.loop).fs_stat ".git" or {}, "type") == "directory",
           }
         end
+        maps.n["<Leader>ft"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" }
+        maps.n["<Leader>fT"] = {
+          function() require("telescope.builtin").colorscheme(require("telescope.themes").get_dropdown {}) end,
+          desc = "Find themes",
+        }
       end,
     },
   },
