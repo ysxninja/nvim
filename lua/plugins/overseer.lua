@@ -105,6 +105,7 @@ return {
             [prefix .. "p"] = { "<Cmd>Present<CR>", desc = "Present file output" },
             [prefix .. "r"] = { "<Cmd>OverseerRun<CR>", desc = "Run" },
             [prefix .. "v"] = { "<Cmd>OpOut<CR>", desc = "View Output" },
+            [prefix .. "o"] = { "<Cmd>OverseerOpen<CR>", desc = "Overseer Open" },
           },
         },
       },
