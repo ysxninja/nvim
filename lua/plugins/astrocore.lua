@@ -26,6 +26,13 @@ return {
     ---@type AstroCoreOpts
     opts = require("astrocore").extend_tbl(opts, {
       -- Configure core features of AstroNvim
+      -- Detached worktree for dotfiles
+      git_worktrees = {
+        {
+          toplevel = vim.env.HOME,
+          gitdir = vim.env.HOME .. "/dotfiles",
+        },
+      },
       -- icons_enabled = true,
       features = {
         large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
@@ -189,6 +196,7 @@ return {
           ["<Down>"] = { "<cmd>TmuxNavigateDown<cr>", desc = "window down" },
           ["<Up>"] = { "<cmd>TmuxNavigateUp<cr>", desc = "window up" },
 
+          -- send deleted content to abyss
           ["<leader>d"] = { [["_d]], desc = "del _d / debugging" },
           -- copy without sending to system clipboard
           ["<leader>y"] = { [["+y]] },
