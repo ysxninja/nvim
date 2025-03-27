@@ -127,7 +127,7 @@ return {
   {
     "github/copilot.vim",
     -- event = "VeryLazy",
-    enabled = false,
+    -- enabled = false,
     cmd = "Copilot",
     init = function()
       vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
