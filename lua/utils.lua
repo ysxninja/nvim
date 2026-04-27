@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 local M = {}
 
 function M.vim_opt_toggle(opt, on, off, name)

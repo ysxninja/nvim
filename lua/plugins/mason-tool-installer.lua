@@ -33,7 +33,7 @@ return {
       "eslint_d", -- Js and Ts
       "shellcheck", -- Shell
       "ansible-lint", -- ansible
-      "ruff-lsp", -- Python
+      "ruff", -- Python
       "taplo", -- Toml
       "sqlfluff", -- Sql
 

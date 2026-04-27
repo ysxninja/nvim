@@ -17,6 +17,7 @@ return {
       "json",
       "json5",
       "jsonc",
+      "latex",
       "typescript",
       "javascript",
       "rasi",

@@ -124,20 +124,20 @@ return {
   --   build = "yarn install --frozen-lockfile && yarn compile",
   -- },
   -- INFO: AI Plugins
-  {
-    "github/copilot.vim",
-    -- event = "VeryLazy",
-    -- enabled = false,
-    cmd = "Copilot",
-    init = function()
-      vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
-        expr = true,
-        replace_keycodes = false,
-      })
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_assume_mapped = true
-    end,
-  },
+  --  {
+  --    "github/copilot.vim",
+  --    -- event = "VeryLazy",
+  --    enabled = false,
+  --    cmd = "Copilot",
+  --    init = function()
+  --      vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+  --        expr = true,
+  --        replace_keycodes = false,
+  --      })
+  --      vim.g.copilot_no_tab_map = true
+  --      vim.g.copilot_assume_mapped = true
+  --    end,
+  --  },
   -- INFO:  Go Plugins & Dap
   {
     "ray-x/go.nvim",
@@ -159,8 +159,16 @@ return {
   },
   -- Snippets
   {
-    "rafamadriz/friendly-snippets",
-    -- enabled = false,
+    "L3MON4D3/LuaSnip",
+    dependencies = "rafamadriz/friendly-snippets",
+    config = function(plugin, opts)
+      -- add more custom luasnip configuration such as filetype extend or custom snippets
+      local luasnip = require "luasnip"
+      luasnip.filetype_extend("javascript", { "javascriptreact" })
+
+      -- include the default astronvim config that calls the setup call
+      require "astronvim.plugins.configs.luasnip"(plugin, opts)
+    end,
   },
   -- INFO: Vim Tmux integration Plugins
   {
