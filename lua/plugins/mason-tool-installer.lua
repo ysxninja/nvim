@@ -17,7 +17,6 @@ return {
       "typescript-language-server",
       "yaml-language-server",
       "tailwindcss-language-server",
-      "texlab",
       "typos-lsp",
       "taplo",
       "css-lsp",
