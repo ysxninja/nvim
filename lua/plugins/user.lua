@@ -104,6 +104,7 @@ return {
     -- Time tracking plugin; config /opt/wakapi/
     "wakatime/vim-wakatime",
     event = "VeryLazy",
+    enabled = false,
   },
   -- INFO: Python Plugins
   -- {
@@ -144,7 +145,6 @@ return {
     dependencies = { -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
-      "nvim-treesitter/nvim-treesitter",
     },
     config = function(_, opts) require("go").setup(opts) end,
     event = { "CmdlineEnter" },

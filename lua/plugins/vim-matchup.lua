@@ -1,29 +1,23 @@
----@type LazySpec
 return {
   "andymass/vim-matchup",
-  dependencies = {
-    {
-      "AstroNvim/astrocore",
-      opts = {
-        options = {
-          g = {
-            matchup_matchparen_nomode = "i",
-            matchup_matchparen_deferred = 1,
-            matchup_matchparen_offscreen = {},
-          },
-        },
+  init = function()
+    -- modify your configuration vars here
+    vim.g.matchup_treesitter_stopline = 500
+
+    -- or call the setup function provided as a helper. It defines the
+    -- configuration vars for you
+    require("match-up").setup {
+      treesitter = {
+        stopline = 500,
       },
-    },
-  },
-  specs = {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      dependencies = { "andymass/vim-matchup" },
-      ---@type TSConfig
-      ---@diagnostic disable-next-line: missing-fields
-      opts = {
-        matchup = { enable = true },
-      },
+    }
+  end,
+  -- or use the `opts` mechanism built into `lazy.nvim`. It calls
+  -- `require('match-up').setup` under the hood
+  ---@type matchup.Config
+  opts = {
+    treesitter = {
+      stopline = 500,
     },
   },
 }
