@@ -179,11 +179,11 @@ return {
   -- INFO: Vim Latex integration Plugins
   {
     "lervag/vimtex",
-    lazy = false, -- we don't want to lazy load VimTeX
-    -- tag = "v2.15", -- uncomment to pin to a specific release
+    event = "BufRead *.tex",
     init = function()
-      -- VimTeX configuration goes here, e.g.
-      vim.g.vimtex_view_method = "zathura"
+      vim.cmd [[let g:vimtex_view_general_viewer = 'zathura']]
+      vim.cmd [[set conceallevel=2]]
+      vim.cmd [[let g:tex_conceal='abdmg']]
     end,
   },
 }
