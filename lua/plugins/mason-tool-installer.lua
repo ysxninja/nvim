@@ -35,19 +35,19 @@ return {
       "ansible-lint", -- ansible
       "ruff", -- Python
       "taplo", -- Toml
-      "sqlfluff", -- Sql
+      -- "sqlfluff", -- Sql
 
       -- Debuggers
-      "bash-debug-adapter",
+      -- "bash-debug-adapter",
       -- "cpptools",
-      "debugpy",
-      "delve",
+      -- "debugpy",
+      -- "delve",
       -- "haskell-debug-adapter",
-      "js-debug-adapter",
+      -- "js-debug-adapter",
       -- "php-debug-adapter",
 
       -- Other Tools
-      "tree-sitter-cli",
+      -- "tree-sitter-cli",
     },
     integrations = {
       ["mason-lspconfig"] = false,
